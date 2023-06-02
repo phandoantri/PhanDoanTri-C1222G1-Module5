@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6</title>
+</head>
+<body>
+<script>
+    let courses = [
+        {
+            id: 1,
+            title: "ReactJS Tutorial",
+            rating: 4.2,
+        },
+        {
+            id: 2,
+            title: "Angular Tutorial",
+            rating: 2.5,
+        },
+        {
+            id: 3,
+            title: "VueJS Tutorial",
+            rating: 3.8,
+        },
+        {
+            id: 4,
+            title: "Java Tutorial",
+            rating: 4,
+        },
+        {
+            id: 5,
+            title: "JavaScript Tutorial",
+            rating: 3.5,
+        }
+    ];
+    let addedCourses = [
+        {
+            id: 6,
+            title: "PHP Tutorial",
+            rating: 3,
+        },
+        {
+            id: 7,
+            title: "C# Tutorial",
+            rating: 2,
+        },
+        {
+            id: 8,
+            title: "Docker Tutorial",
+            rating: 3.8,
+        }
+    ];
+    console.log("giá trị trong mảng là");
+    let arr = courses.filter((value => {
+        console.log(value);
+    }))
+
+    let rate = courses.filter(a => a.rating >= 4);
+    console.log("rating cá giá trị lớn hơn hoặc bằng 4 là ");
+    rate.map(b => console.log((b.title)));
+
+    console.log("các đối tượng có rating bé hơn 4");
+    let rate1 = courses.filter(a => a.rating < 4);
+    rate1.map(b => console.log(`${b.id}-${b.title}-${b.rating}`));
+
+    console.log("kết quả sau khi gộp 2 mảng courses và addedCourses")
+    let arr1=[...courses,...addedCourses];
+    console.log(arr1);
+
+</script>
+</body>
+</html>
