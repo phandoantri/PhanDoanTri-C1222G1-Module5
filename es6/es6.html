@@ -50,22 +50,28 @@
             rating: 3.8,
         }
     ];
-    console.log("giá trị trong mảng là");
-    let arr = courses.filter((value => {
-        console.log(value);
-    }))
 
-    let rate = courses.filter(a => a.rating >= 4);
-    console.log("rating cá giá trị lớn hơn hoặc bằng 4 là ");
-    rate.map(b => console.log((b.title)));
 
-    console.log("các đối tượng có rating bé hơn 4");
-    let rate1 = courses.filter(a => a.rating < 4);
-    rate1.map(b => console.log(`${b.id}-${b.title}-${b.rating}`));
+    let arr = courses.filter((value) => {
+        return value.rating >= 4
+    })
+    console.log(arr);
 
-    console.log("kết quả sau khi gộp 2 mảng courses và addedCourses")
-    let arr1=[...courses,...addedCourses];
+
+    // let arr1 = courses.filter(a => a.rating < 4);
+    // arr1.map(b => console.log(`${b.id}-${b.title}-${b.rating}`));
+    let arr1 = courses.filter(a => a.rating < 4);
+    arr1.forEach((word) => {
+        word.id + "-" + word.title + "-" + word.rating
+    });
     console.log(arr1);
+
+
+    function join(a, b) {
+        return [...a, ...b]
+    }
+
+    console.log(join(courses, addedCourses))
 
 </script>
 </body>
