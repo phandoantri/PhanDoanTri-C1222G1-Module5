@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Thẻ meta, tiêu đề và các tệp CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa thông tin dịch vụ - Furama</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Furama</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dịch vụ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên hệ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="container mt-5">
+    <h2>Sửa thông tin dịch vụ</h2>
+    <form>
+        <div class="form-group">
+            <label for="serviceType">Loại dịch vụ:</label>
+            <select class="form-control" id="serviceType">
+                <option value="villa">Villa</option>
+                <option value="house">House</option>
+                <option value="room">Room</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="serviceDescription">Mô tả:</label>
+            <textarea class="form-control" id="serviceDescription" rows="4">Mô tả dịch vụ 1</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu</button>
+    </form>
+    <footer class="bg-dark text-light py-3">
+        <div class="container">
+            <div class="text-center">
+                <p>&copy; 2023 Furama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

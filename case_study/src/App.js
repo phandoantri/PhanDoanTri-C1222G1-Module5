@@ -8,7 +8,7 @@ function App() {
   return (
       <div>
         <Header />
-        <h2>Nội dung trang chủ</h2>
+        <Body />
         <Footer />
       </div>
   );

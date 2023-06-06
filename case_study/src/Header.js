@@ -18,7 +18,7 @@ const Header = () => {
                         <a href="/dining">Nhà hàng</a>
                     </li>
                     <li>
-                        <a href="/services">Dịch vụ</a>
+                        <a href="./service.html">Dịch vụ</a>
                     </li>
                     <li>
                         <a href="/contact">Liên hệ</a>
