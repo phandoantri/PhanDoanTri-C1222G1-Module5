@@ -9,7 +9,7 @@ function App() {
         <>
             <h1>Student</h1>
             <table>
-                <tbody>
+                <thead>
                 <tr>
                     <th>Company</th>
                     <th>ConTact</th>
@@ -23,7 +23,7 @@ function App() {
                         <td>{student.country}</td>
                     </tr>
                 ))}
-                </tbody>
+                </thead>
             </table>
         </>
     );
