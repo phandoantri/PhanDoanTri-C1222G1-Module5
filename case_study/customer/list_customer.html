@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title> Danh sách khách hàng</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .pagination {
+            margin-top: 10px;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<h1>Danh sách khách hàng</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tên khách hàng</th>
+        <th>Email</th>
+        <th>Địa chỉ</th>
+        <th>Số điện thoại</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Nguyễn Văn A</td>
+        <td>example1@gmail.com</td>
+        <td>Hà Nội</td>
+        <td>0123456789</td>
+        <td>
+            <button onclick="editCustomer(1)">Sửa</button>
+            <button onclick="deleteCustomer(1)">Xoá</button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Nguyễn Văn B</td>
+        <td>example2@gmail.com</td>
+        <td>Hồ Chí Minh</td>
+        <td>0987654321</td>
+        <td>
+            <button onclick="editCustomer(2)">Sửa</button>
+            <button onclick="deleteCustomer(2)">Xoá</button>
+        </td>
+    </tr>
+    <!-- Thêm các hàng khách hàng khác vào đây -->
+    </tbody>
+</table>
+<div class="pagination">
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <!-- Thêm các trang phân trang khác vào đây -->
+</div>
+
+<script>
+    function editCustomer(id) {
+        // Xử lý sự kiện sửa khách hàng với ID tương ứng
+        console.log("Sửa khách hàng ID: " + id);
+    }
+
+    function deleteCustomer(id) {
+        // Xử lý sự kiện xoá khách hàng với ID tương ứng
+        console.log("Xoá khách hàng ID: " + id);
+    }
+</script>
+</body>
+</html>
