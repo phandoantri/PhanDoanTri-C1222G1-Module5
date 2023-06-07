@@ -3,15 +3,22 @@ import './App.css';
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import {CustomerList} from "./customer/CustomerList";
+import './index.css'
+import {EditCustomer} from "./customer/UpdateCustomer";
+import './css/UpdateCustomer.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
-  return (
-      <div>
-        <Header />
-        <Body />
-        <Footer />
-      </div>
-  );
+    return (
+        <>
+            <Header/>
+            <CustomerList />
+            <EditCustomer />
+            <Footer/>
+        </>
+    );
 }
 
 export default App;

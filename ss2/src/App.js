@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import "./index.css"
 import students from "./data/index"
+import React from "react";
 
 function App() {
     return (
@@ -15,7 +16,8 @@ function App() {
                     <th>ConTact</th>
                     <th>Country</th>
                 </tr>
-
+                </thead>
+                <tbody>
                 {students.map((student, index) => (
                     <tr key={index}>
                         <td>{student.company}</td>
@@ -23,7 +25,7 @@ function App() {
                         <td>{student.country}</td>
                     </tr>
                 ))}
-                </thead>
+            </tbody>
             </table>
         </>
     );
