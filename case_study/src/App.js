@@ -10,6 +10,7 @@ import './css/UpdateCustomer.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/CreateCustomer.css'
 import {AddCustomer} from "./customer/CreateCustomer";
+import {ContractList} from "./contact/ContactList";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <CustomerList />
             <EditCustomer />
             <AddCustomer />
+            <ContractList />
             <Footer/>
         </>
     );
