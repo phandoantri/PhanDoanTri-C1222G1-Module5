@@ -1,0 +1,10 @@
+label {
+  display: block;
+}
+
+.custom-input {
+  padding-bottom: 2%;
+}
+.err-message{
+  color: red;
+}

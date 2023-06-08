@@ -8,6 +8,8 @@ import './index.css'
 import {EditCustomer} from "./customer/UpdateCustomer";
 import './css/UpdateCustomer.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/CreateCustomer.css'
+import {AddCustomer} from "./customer/CreateCustomer";
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
             <Header/>
             <CustomerList />
             <EditCustomer />
+            <AddCustomer />
             <Footer/>
         </>
     );

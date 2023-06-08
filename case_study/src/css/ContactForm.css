@@ -1,0 +1,35 @@
+.contract-form-container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.contract-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contract-form-container form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contract-form-container form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.contract-form-container form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contract-form-container form button:hover {
+    background-color: #45a049;
+}

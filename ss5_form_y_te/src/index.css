@@ -1,0 +1,15 @@
+/*label {*/
+/*  display: block;*/
+/*}*/
+
+.custom-input {
+  padding-bottom: 2%;
+}
+.err-message{
+  color: red;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 100px;
+}
