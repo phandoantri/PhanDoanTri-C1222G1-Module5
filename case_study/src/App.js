@@ -11,16 +11,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/CreateCustomer.css'
 import {AddCustomer} from "./customer/CreateCustomer";
 import {ContractList} from "./contact/ContactList";
+import {ServiceList} from "./service/ListService";
 
 
 function App() {
     return (
         <>
             <Header/>
-            <CustomerList />
-            <EditCustomer />
-            <AddCustomer />
-            <ContractList />
+            {/*<CustomerList />*/}
+            {/*<EditCustomer />*/}
+            {/*<AddCustomer />*/}
+            {/*<ContractList />*/}
+            <ServiceList />
             <Footer/>
         </>
     );

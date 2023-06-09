@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import {FidgetSpinner} from 'react-loader-spinner';
 import 'react-toastify/dist/ReactToastify.css';
 
-export function CreateForm() {
+export function FormKhaiBaoYTe() {
     return (
         <>
             <Formik
@@ -39,7 +39,7 @@ export function CreateForm() {
                 validationSchema={Yup.object({
                     hoTen: Yup.string().required('Không được để trống'),
                     cmnd: Yup.string().required('Không được để trống'),
-                    ngaySinh: Yup.date().required('Không được để trống và lớn hơn 1900 ').min(1900),
+                    ngaySinh: Yup.number().required('Không được để trống và lớn hơn 1900 ').min(1900),
                     quocTich: Yup.string().required('Không được để trống'),
                     tinhThanh: Yup.string().required('Không được để trống'),
                     quanHuyen: Yup.string().required('Không được để trống'),
@@ -65,8 +65,8 @@ export function CreateForm() {
                                 </div>
                                 <ErrorMessage name='cmnd' component='span' className='err-message'/>
                                 <div className='mb-3'>
-                                    <div><label htmlFor='ngaySinh'>Ngày sinh : </label></div>
-                                    <div><Field type='date' name="ngaySinh" id='ngaySinh'/></div>
+                                    <div><label htmlFor='ngaySinh'>Năm sinh : </label></div>
+                                    <div><Field type='number' name="ngaySinh" id='ngaySinh'/></div>
                                 </div>
                                 <ErrorMessage name='ngaySinh' component='span' className='err-message'/>
 

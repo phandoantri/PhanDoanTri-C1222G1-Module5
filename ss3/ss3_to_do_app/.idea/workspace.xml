@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6da17b0-1ecd-4536-acbd-eca1266f4c0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../case_study/src/service.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss3_danh_sach_sinh_vien/src/components/StudentInfoComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/ToDoApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/src/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/src/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/src/service/ListService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss6_to_do_list/src/component/CreateToDo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss6_to_do_list/src/component/ToDoList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss6_to_do_list/src/service/ToDoListService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/service/list_service.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/service/list_service.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/src/css/UpdateCustomer.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/src/css/UpdateCustomer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/src/customer/CustomerList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/src/customer/CustomerList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_lien_he/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss5_form_lien_he/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_lien_he/src/component/CreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss5_form_lien_he/src/component/FormLienHe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_y_te/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss5_form_y_te/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss5_form_y_te/src/component/CreateForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss5_form_y_te/src/component/FormKhaiBaoYTe.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +37,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -42,7 +54,12 @@
       <option name="presentableId" value="Default" />
       <updated>1686036051592</updated>
       <workItem from="1686036053240" duration="6000" />
+      <workItem from="1686280655960" duration="1385000" />
+      <workItem from="1686291889825" duration="569000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
 </project>

@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import {CreateForm} from "./component/CreateForm";
+import {FormKhaiBaoYTe} from "./component/FormKhaiBaoYTe";
 import React from "react";
 
 function App() {
   return (
-   <CreateForm />
+   <FormKhaiBaoYTe />
   );
 }
 

@@ -1,12 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import {FormLienHe} from "./component/FormLienHe";
+import {ToDoList} from "./component/ToDoList";
 import React from "react";
-import './index.css'
 
 function App() {
   return (
-    <FormLienHe />
+    <ToDoList />
   );
 }
 
