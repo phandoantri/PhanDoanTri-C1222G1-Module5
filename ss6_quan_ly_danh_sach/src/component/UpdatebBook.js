@@ -1,49 +1,34 @@
-import React, { useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 
- export function UpdateBook () {
-    const history = useHistory();
-    const { id } = useParams();
-    const [book, setBook] = useState({ id: '', title: '', quantity: '' });
+export function UpdateBook() {
+    const location = useLocation();
+    const { book } = location.state || {};
+    const [title, setTitle] = useState(book.title);
+    const [quantity, setQuantity] = useState(book.quantity);
+    const navigate = useNavigate();
 
-    const handleSave = () => {
-        // Thực hiện lưu thông tin đối tượng đã cập nhật
-        // Ví dụ: gọi API để lưu thông tin vào cơ sở dữ liệu
-
-        // Chuyển về trang ban đầu
-        history.push('/');
+    const handleUpdate = () => {
+        const updatedBook = { id: book.id, title, quantity };
+        navigate('/', { state: { updatedBook } });
     };
 
-    const handleChange = (event) => {
-        setBook({ ...book, [event.target.name]: event.target.value });
-    };
+    useEffect(() => {
+        if (location.state?.updatedBook) {
+            const { title, quantity } = location.state.updatedBook;
+            setTitle(title);
+            setQuantity(quantity);
+        }
+    }, [location.state?.updatedBook]);
 
     return (
-        <div>
+        <>
             <h1>Update Book</h1>
-            <form>
-                <label htmlFor="title">Title:</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={book.title}
-                    onChange={handleChange}
-                />
-
-                <label htmlFor="quantity">Quantity:</label>
-                <input
-                    type="text"
-                    id="quantity"
-                    name="quantity"
-                    value={book.quantity}
-                    onChange={handleChange}
-                />
-
-                <button type="button" onClick={handleSave}>
-                    Save
-                </button>
-            </form>
-        </div>
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+            <button type="button" onClick={handleUpdate}>
+                Update
+            </button>
+        </>
     );
-};
+}

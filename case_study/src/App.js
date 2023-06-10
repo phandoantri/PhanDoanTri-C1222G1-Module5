@@ -12,6 +12,8 @@ import './css/CreateCustomer.css'
 import {AddCustomer} from "./customer/CreateCustomer";
 import {ContractList} from "./contact/ContactList";
 import {ServiceList} from "./service/ListService";
+import {CreateService} from "./service/CreateService";
+import './css/CreateService.css'
 
 
 function App() {
@@ -22,7 +24,8 @@ function App() {
             {/*<EditCustomer />*/}
             {/*<AddCustomer />*/}
             {/*<ContractList />*/}
-            <ServiceList />
+            {/*<ServiceList />*/}
+            <CreateService />
             <Footer/>
         </>
     );

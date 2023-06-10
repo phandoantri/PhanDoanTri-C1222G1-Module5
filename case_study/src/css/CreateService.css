@@ -1,0 +1,19 @@
+.body-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-container {
+    flex: 1;
+    background-image: url('https://png.pngtree.com/png-clipart/20190904/original/pngtree-hand-drawn-cartoon-vector-flat-office-people-free-button-element-png-image_4486811.jpg');
+    background-size: cover;
+    background-position: center;
+}
+body{
+    background: pink;
+}
