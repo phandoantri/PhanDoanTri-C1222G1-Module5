@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import Header from './Header';
 import Footer from './Footer';
 import {CustomerList} from "./customer/CustomerList";
 import './index.css'
@@ -14,12 +13,13 @@ import {ContractList} from "./contact/ContactList";
 import {ServiceList} from "./service/ListService";
 import {CreateService} from "./service/CreateService";
 import './css/CreateService.css'
+import {Header} from "./Header";
 
 
 function App() {
     return (
         <>
-            <Header/>
+           <Header />
             {/*<CustomerList />*/}
             {/*<EditCustomer />*/}
             {/*<AddCustomer />*/}

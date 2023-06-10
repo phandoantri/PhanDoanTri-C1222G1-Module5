@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './css/Header.css';
 
-const Header = () => {
+export function Header  ()  {
+    useEffect(() => {
+        const header = document.querySelector('.header');
+
+        const handleScroll = () => {
+            if (window.pageYOffset > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
         <header className="header">
             <nav className="navbar">
-                <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" style={{width:'100px',height:"100px"}}  alt="Furama Resort" className="logo" />
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" style={{width:'60px',height:"60px"}}  alt="Furama Resort" className="logo" />
                 <div className="center-section">
                 <ul className="nav-links">
                     <li>
@@ -29,5 +46,3 @@ const Header = () => {
         </header>
     );
 };
-
-export default Header;

@@ -36,7 +36,7 @@ export function CreateService() {
                     ({isSubmitting}) => (
                         <div className="container">
                             <div className="form-container">
-                                <h1 style={{textAlign:"center"}}>Form Create Service</h1>
+                                <h1 style={{textAlign:"center"}}>Form Update</h1>
                                 <Form>
                                     <div className='mb-3'>
                                         <label htmlFor='nameService'>Type service </label>

@@ -2,6 +2,10 @@
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .navbar {
@@ -34,4 +38,7 @@
 
 .nav-links li a:hover {
     color: #555;
+}
+body {
+    padding-top: 100px; /* Thay đổi giá trị 100px thành chiều cao của phần header */
 }
