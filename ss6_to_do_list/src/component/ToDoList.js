@@ -77,7 +77,10 @@ export function ToDoList() {
 
             {
                 toDo.map((item) => (
-                    <li key={item.id}>{item.title}</li>
+                    <ul key={item.id}>
+                        <li>{item.title}</li>
+                    </ul>
+
                 ))
             }
 

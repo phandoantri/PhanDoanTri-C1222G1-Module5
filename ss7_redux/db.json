@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Nguyen Van B",
+      "email": "a@gmail.com",
+      "website": "redux.org"
+    } ,
+    {
+      "id": 2,
+      "name": "Nguyen Van A",
+      "email": "b@gmail.com",
+      "website": "react.org"
+    } ,
+    {
+      "id": 3,
+      "name": "Nguyen Van C",
+      "email": "c@gmail.com",
+      "website": "js.org"
+    }
+  ]
+}
+
+
+

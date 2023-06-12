@@ -1,5 +1,5 @@
 {
-  "name": "ss6_quan_ly_danh_sach",
+  "name": "ss7_redux",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,10 @@
     "react-toastify": "^9.1.2",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.2",
-    "formik": "^2.2.9"
+    "formik": "^2.2.9",
+    "redux": "^4.2.1",
+    "react-redux": "^8.0.5",
+    "redux-thunk": "^2.4.2"
   },
   "scripts": {
     "json-server": "json-server -p 8080 -w db.json",

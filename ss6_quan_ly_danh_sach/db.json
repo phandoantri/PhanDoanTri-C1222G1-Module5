@@ -1,19 +1,14 @@
 {
-  "posts": [
+  "book": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 4,
+      "title": "Am thuc",
+      "quantity": 14
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "Bong da",
+      "quantity": 15,
+      "id": 5
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

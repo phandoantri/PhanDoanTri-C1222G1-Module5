@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import * as bookService from '../service/BookService'
-import { Link, useNavigate } from "react-router-dom";
-import { useLocation } from "react-router";
+import {Link, NavLink, useNavigate} from "react-router-dom";
+import {useLocation} from "react-router";
 
 
 export function BookList() {
     const navigate = useNavigate();
     const location = useLocation();
     const [bookList, setBookList] = useState([]);
+    const [book, setBook] = useState([]);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -17,9 +18,10 @@ export function BookList() {
         fetchApi();
     }, []);
 
-    const handleDelete = (id) => {
-        const updatedBookList = bookList.filter((book) => book.id !== id);
-        setBookList(updatedBookList);
+    const handleDelete = async (id) => {
+        const result = await bookService.deleteBook(id);
+        const result1 = await bookService.findAll();
+        setBookList(result1)
     };
 
     useEffect(() => {
@@ -36,12 +38,11 @@ export function BookList() {
         }
     }, [location.state?.updatedBook]);
 
-    const handleUpdate = (book) => {
-        navigate(`/update-book/${book.id}`, { state: { book } });
-    };
 
     return (
+
         <>
+            <NavLink to='create-book'>Create</NavLink>
             <table border={1}>
                 <thead>
                 <tr>
@@ -58,7 +59,10 @@ export function BookList() {
                             <td>{book.quantity}</td>
                             <td>
                                 <button type="button" onClick={() => handleDelete(book.id)}>Xóa</button>
-                                <button type="button" onClick={() => handleUpdate(book)}>Update</button>
+                                <button>
+                                    <NavLink to={'update-book/'+book.id}>Update</NavLink>
+                                </button>
+
                             </td>
                         </tr>
                     ))
