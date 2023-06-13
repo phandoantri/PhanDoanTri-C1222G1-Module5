@@ -8,24 +8,33 @@ import {EditCustomer} from "./customer/UpdateCustomer";
 import './css/UpdateCustomer.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/CreateCustomer.css'
-import {AddCustomer} from "./customer/CreateCustomer";
+import {CreateCustomer} from "./customer/CreateCustomer";
 import {ContractList} from "./contact/ContactList";
-import {ServiceList} from "./service/ListService";
-import {CreateService} from "./service/CreateService";
+import {ServiceList} from "./services/ListService";
+import {CreateService} from "./services/CreateService";
 import './css/CreateService.css'
 import {Header} from "./Header";
+import {Routes} from "react-router-dom";
+import {Route} from "react-router";
 
 
 function App() {
     return (
         <>
-           <Header />
-            {/*<CustomerList />*/}
-            {/*<EditCustomer />*/}
-            {/*<AddCustomer />*/}
-            {/*<ContractList />*/}
-            {/*<ServiceList />*/}
-            <CreateService />
+            <Header/>
+            <Routes>
+                {/*<Route path="/service" element={<ServiceList />} />*/}
+                <Route path="/create-customer" element={<CreateCustomer />} />
+                <Route path="/customer" element={<CustomerList />} />
+
+                {/*<CustomerList />*/}
+                {/*<EditCustomer />*/}
+                {/*<AddCustomer />*/}
+                {/*<ContractList />*/}
+                {/*<ServiceList />*/}
+                {/*<CreateService />*/}
+
+            </Routes>
             <Footer/>
         </>
     );

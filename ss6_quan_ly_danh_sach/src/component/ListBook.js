@@ -60,7 +60,7 @@ export function BookList() {
                             <td>
                                 <button type="button" onClick={() => handleDelete(book.id)}>Xóa</button>
                                 <button>
-                                    <NavLink to={'update-book/'+book.id}>Update</NavLink>
+                                    <NavLink to={'/update-book/'+book.id}>Update</NavLink>
                                 </button>
 
                             </td>

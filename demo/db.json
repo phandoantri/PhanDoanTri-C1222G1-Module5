@@ -1,0 +1,14 @@
+{
+  "book": [
+    {
+      "id": 3,
+      "title": "Am thuc",
+      "quantity": "1512"
+    },
+    {
+      "title": "Bong da",
+      "quantity": 12,
+      "id": 4
+    }
+  ]
+}

@@ -1,86 +1,105 @@
 import React, {useState} from "react";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import * as customerService from "../service/CustomerService"
+import {useNavigate} from "react-router";
+import * as Yup from "yup"
 
-export function AddCustomer  ()  {
-    const [customer, setCustomer] = useState({
-        id: '',
-        name: '',
-        dayOfBirth: '',
-        gender: '',
-        cmndNumber: '',
-        phoneNumber: '',
-        email: '',
-        typeCustomer: '',
-        address: ''
-    });
-
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setCustomer({ ...customer, [name]: value });
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Gửi dữ liệu khách hàng mới đi nơi bạn cần xử lý (API, Redux, ...)
-        console.log(customer);
-    };
-
+export function CreateCustomer() {
+    const navigate = useNavigate();
     return (
-        <div className="form-container">
-            <h2>Add Customer</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    ID:
-                    <input type="text" name="id" value={customer.id} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Name:
-                    <input type="text" name="name" value={customer.name} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Day of Birth:
-                    <input type="text" name="dayOfBirth" value={customer.dayOfBirth} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Gender:
-                    <input type="text" name="gender" value={customer.gender} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    CMND Number:
-                    <input type="text" name="cmndNumber" value={customer.cmndNumber} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Phone Number:
-                    <input type="text" name="phoneNumber" value={customer.phoneNumber} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Email:
-                    <input type="text" name="email" value={customer.email} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Type Customer:
-                    <select name="typeCustomer" value={customer.typeCustomer} onChange={handleInputChange}>
-                        <option value="Diamond">Diamond</option>
-                        <option value="Platinium">Platinium</option>
-                        <option value="Gold">Gold</option>
-                        <option value="Silver">Silver</option>
-                        <option value="Member">Member</option>
-                    </select>
-                </label>
-                <br />
-                <label>
-                    Address:
-                    <input type="text" name="address" value={customer.address} onChange={handleInputChange} />
-                </label>
-                <br />
-                <button type="submit">Add</button>
-            </form>
-        </div>
+        <>
+            <Formik
+                initialValues={{
+                    name: "",
+                    dayOfBirth: "",
+                    gender: "",
+                    CMND: "",
+                    phoneNumber: "",
+                    email: "",
+                    typeCustomer: "",
+                    address: ""
+                }}
+                onSubmit={(values) => {
+                    const create=async ()=>{
+                        await customerService.create(values)
+                        console.log(values)
+                        navigate('/customer')
+                    }
+                    create();
+                }}
+                validationSchema={Yup.object({
+                    name: Yup.string().required("must not be left blank"),
+                    dayOfBirth: Yup.string().required("must not be left blank"),
+                    CMND: Yup.string().required("must not be left blank"),
+                    phoneNumber: Yup.string().required("must not be left blank"),
+                    email: Yup.string().required("must not be left blank").matches(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+                    address: Yup.string().required("must not be left blank")
+                })}
+            >
+                {
+                    <div className="form-container">
+                        <h2>Add Customer</h2>
+                        <Form>
+                            <div>
+                                <label> Name:</label>
+                                <Field type="text" name="name"/>
+                                <ErrorMessage name="name" component='span' className="mess-err"/>
+
+                            </div>
+                            <div>
+                                <label>Day of Birth:</label>
+                                <Field type="text" name="dayOfBirth"/>
+                                <ErrorMessage name="dayOfBirth" className="mess-err"/>
+                            </div>
+                            <div>
+                                <label>Gender :
+                                    <label>Male</label>
+                                    <Field type="radio" name="gender" value="Male"/>
+                                    <label>Female</label>
+                                    <Field type="radio" name="gender" value="Female"/>
+                                </label>
+                            </div>
+                            <div>
+                                <label>CMND Number:</label>
+                                <Field type="text" name="CMND"/>
+                                <ErrorMessage name="CMND" className="mess-err"/>
+                            </div>
+
+                            <div>
+                                <label> Phone Number: </label>
+                                <Field type="text" name="phoneNumber"/>
+                                <ErrorMessage name="phoneNumber" className="mess-err"/>
+                            </div>
+
+                            <div>
+                                <label>Email:</label>
+                                <Field type="text" name="email"/>
+                                <ErrorMessage name="email" className="mess-err"/>
+                            </div>
+
+                            <div>
+                                <label>
+                                    Type Customer:
+                                    <Field as="select" name="typeCustomer">
+                                        <option value="Diamond">Diamond</option>
+                                        <option value="Platinium">Platinium</option>
+                                        <option value="Gold">Gold</option>
+                                        <option value="Silver">Silver</option>
+                                        <option value="Member">Member</option>
+                                    </Field>
+                                </label>
+                            </div>
+                            <div>
+                                <label> Address: </label>
+                                <Field type="text" name="address"/>
+                                <ErrorMessage name="address" className="mess-err"/>
+                            </div>
+                            <button type="submit" style={{width: '100px'}}>Add</button>
+                        </Form>
+                    </div>
+                }
+
+            </Formik>
+        </>
     );
 };
