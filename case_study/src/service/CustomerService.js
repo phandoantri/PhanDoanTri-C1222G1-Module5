@@ -24,3 +24,19 @@ export const create=async (customer)=>{
 
     }
 }
+export const updateCustomer=async (id,customer)=>{
+    try {
+        let result=await axios.put(`http://localhost:8080/customers/${id}`,customer)
+    }catch (err) {
+        console.log(err)
+    }
+}
+export const getCustomerById=async (id)=>{
+    try {
+        let result=await axios.get(`http://localhost:8080/customers/${id}`);
+        return result.data;
+    }catch (err) {
+        console.log(err)
+
+    }
+}

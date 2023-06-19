@@ -8,7 +8,6 @@ export function BookList() {
     const navigate = useNavigate();
     const location = useLocation();
     const [bookList, setBookList] = useState([]);
-    const [book, setBook] = useState([]);
 
     useEffect(() => {
         const fetchApi = async () => {

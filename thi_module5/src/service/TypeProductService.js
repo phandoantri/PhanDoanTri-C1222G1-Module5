@@ -1,0 +1,11 @@
+import axios from "axios";
+
+export const findAll=async ()=>{
+    try {
+        let result=await axios.get("http://localhost:8080/typeProduct")
+        return result.data
+    }catch (err) {
+        console.log(err)
+
+    }
+}

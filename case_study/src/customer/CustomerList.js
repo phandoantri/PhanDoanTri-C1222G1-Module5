@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import * as customerService from "../service/CustomerService"
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
 
 export function CustomerList() {
     const [customerList, setCustomerList] = useState([])
+    const location=useLocation();
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -20,6 +21,18 @@ export function CustomerList() {
         const result1 = await customerService.findAll();
         setCustomerList(result1)
     }
+    useEffect(()=>{
+        const updateCustomer=location.state?.updateCustomer;
+        if (updateCustomer){
+            const updateList=customerList.map((customer)=>{
+                if (customer.id===customerList.id){
+                    return updateCustomer;
+                }
+                return customer;
+            })
+            setCustomerList(updateCustomer)
+        }
+    },[location.state?.updateCustomer])
 
     return (
 
@@ -53,8 +66,10 @@ export function CustomerList() {
                             <td>{customer.typeCustomer}</td>
                             <td>{customer.address}</td>
                             <td>
-                                {/*    <button onClick={() => editCustomer(customer.id)}>Sửa</button>*/}
-                                <button onClick={() => deleteCustomer(customer.id)}>Xoá</button>
+                                <button className="btn btn-danger" onClick={() => deleteCustomer(customer.id)}>Xoá</button>
+                                <button>
+                                    <NavLink to={"/update-customer/"+customer.id}>Update</NavLink>
+                                </button>
                             </td>
                         </tr>
                     ))}

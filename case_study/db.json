@@ -2,20 +2,20 @@
   "customers": [
     {
       "id": 2,
-      "name": "Nguyen Van B",
-      "dayOfBirth": "04-10-2000",
-      "gender": "Nữ",
+      "name": "phan doan tri",
+      "dayOfBirth": "04-10-2001",
+      "gender": "Female",
       "CMND": "13452123",
-      "phoneNumber": "0123456798",
-      "email": "B@gmail.com",
-      "typeCustomer": "Silver",
+      "phoneNumber": "1234567890",
+      "email": "pdtri1996@gmail.com",
+      "typeCustomer": "Gold",
       "address": "Huế"
     },
     {
       "id": 3,
       "name": "Nguyen Van C",
       "dayOfBirth": "05-10-2000",
-      "gender": "Nữ",
+      "gender": "Male",
       "CMND": "12452127",
       "phoneNumber": "0123456458",
       "email": "C@gmail.com",
@@ -92,18 +92,32 @@
   ],
   "contact": [
     {
-      "id": 1,
-      "startDate": "2023-06-01",
-      "endDate": "2023-06-30",
-      "deposit": 1000,
-      "totalPayment": 5000
-    },
-    {
       "id": 2,
       "startDate": "2023-07-01",
       "endDate": "2023-07-31",
       "deposit": 1500,
+      "totalPayment": 5000
+    },
+    {
+      "id": 3,
+      "startDate": "23-06-2023",
+      "endDate": "24-06-2023",
+      "deposit": 1000,
       "totalPayment": 6000
+    },
+    {
+      "startDate": "2023-06-13",
+      "endDate": "2023-06-16",
+      "deposit": 500,
+      "totalPayment": 1500,
+      "id": 4
+    },
+    {
+      "startDate": "2023-06-07",
+      "endDate": "2023-06-15",
+      "deposit": 200,
+      "totalPayment": 1000,
+      "id": 5
     }
   ]
 }

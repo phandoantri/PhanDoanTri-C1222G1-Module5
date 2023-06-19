@@ -16,6 +16,9 @@ import './css/CreateService.css'
 import {Header} from "./Header";
 import {Routes} from "react-router-dom";
 import {Route} from "react-router";
+import {CreateContact} from "./contact/CreateContact";
+import {UpdateContact} from "./contact/UpdateContact";
+import './css/Service.css'
 
 
 function App() {
@@ -24,16 +27,13 @@ function App() {
             <Header/>
             <Routes>
                 {/*<Route path="/service" element={<ServiceList />} />*/}
-                <Route path="/create-customer" element={<CreateCustomer />} />
-                <Route path="/customer" element={<CustomerList />} />
-
-                {/*<CustomerList />*/}
-                {/*<EditCustomer />*/}
-                {/*<AddCustomer />*/}
-                {/*<ContractList />*/}
-                {/*<ServiceList />*/}
-                {/*<CreateService />*/}
-
+                <Route path="/create-customer" element={<CreateCustomer/>}/>
+                <Route path="/customer" element={<CustomerList/>}/>
+                <Route path="/update-customer/:id" element={<EditCustomer/>}/>
+                <Route path="/contact" element={<ContractList/>}/>
+                <Route path="/create-contact" element={<CreateContact/>}/>
+                <Route path="/update-contact/:id" element={<UpdateContact/>}/>
+                <Route path="/service" element={<ServiceList/>}/>
             </Routes>
             <Footer/>
         </>

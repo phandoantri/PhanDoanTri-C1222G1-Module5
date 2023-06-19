@@ -43,13 +43,13 @@ export function CreateCustomer() {
                             <div>
                                 <label> Name:</label>
                                 <Field type="text" name="name"/>
-                                <ErrorMessage name="name" component='span' className="mess-err"/>
+                                <ErrorMessage name="name" component='span' className="err-message"/>
 
                             </div>
                             <div>
                                 <label>Day of Birth:</label>
                                 <Field type="text" name="dayOfBirth"/>
-                                <ErrorMessage name="dayOfBirth" className="mess-err"/>
+                                <ErrorMessage name="dayOfBirth" className="err-message"/>
                             </div>
                             <div>
                                 <label>Gender :
@@ -62,19 +62,19 @@ export function CreateCustomer() {
                             <div>
                                 <label>CMND Number:</label>
                                 <Field type="text" name="CMND"/>
-                                <ErrorMessage name="CMND" className="mess-err"/>
+                                <ErrorMessage name="CMND" className="err-message"/>
                             </div>
 
                             <div>
                                 <label> Phone Number: </label>
                                 <Field type="text" name="phoneNumber"/>
-                                <ErrorMessage name="phoneNumber" className="mess-err"/>
+                                <ErrorMessage name="phoneNumber" className="err-message"/>
                             </div>
 
                             <div>
                                 <label>Email:</label>
                                 <Field type="text" name="email"/>
-                                <ErrorMessage name="email" className="mess-err"/>
+                                <ErrorMessage name="email" className="err-message"/>
                             </div>
 
                             <div>
@@ -92,7 +92,7 @@ export function CreateCustomer() {
                             <div>
                                 <label> Address: </label>
                                 <Field type="text" name="address"/>
-                                <ErrorMessage name="address" className="mess-err"/>
+                                <ErrorMessage name="address" className="err-message"/>
                             </div>
                             <button type="submit" style={{width: '100px'}}>Add</button>
                         </Form>

@@ -26,13 +26,13 @@ export function Header  ()  {
                 <div className="center-section">
                 <ul className="nav-links">
                     <li>
-                        <a href="/service">Trang chủ</a>
+                        <a href="/service">Home</a>
                     </li>
                     <li>
                         <a href="/customer">Customer</a>
                     </li>
                     <li>
-                        <a href="/dining">Contact</a>
+                        <a href="/contact">Contact</a>
                     </li>
                     <li>
                         <a href="./service.html"></a>

@@ -1,74 +1,99 @@
-import React, { useState } from 'react';
-import { Table, Pagination } from 'react-bootstrap';
+import React, {useEffect, useState} from 'react';
+import {Table, Pagination} from 'react-bootstrap';
+import * as contactService from '../service/ContactService'
+import {NavLink, useLocation} from "react-router-dom";
 
-export function ContractList ()  {
-    const [contracts, setContracts] = useState([
-        {
-            id: 1,
-            startDate: '2023-06-01',
-            endDate: '2023-06-30',
-            deposit: 1000,
-            totalPayment: 5000,
-        },
-        {
-            id: 2,
-            startDate: '2023-07-01',
-            endDate: '2023-07-31',
-            deposit: 1500,
-            totalPayment: 6000,
-        },
-        // Add more contracts here
-    ]);
-
+export function ContractList() {
+    const location = useLocation();
+    const [contracts, setContracts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const contractsPerPage = 5;
-
-    // Get current contracts
     const indexOfLastContract = currentPage * contractsPerPage;
     const indexOfFirstContract = indexOfLastContract - contractsPerPage;
     const currentContracts = contracts.slice(indexOfFirstContract, indexOfLastContract);
-
-    // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await contactService.findAll();
+            setContracts(result)
+        }
+        fetchApi();
+    })
+
+    const handleDelete = async (id) => {
+        let result = await contactService.deleteContact(id);
+        let result1 = await contactService.findAll();
+        setContracts(result1)
+    }
+    useEffect(() => {
+        const updateContact = location.state?.updateContact;
+        if (updateContact) {
+            const updateList = contracts.map((contact => {
+                if (contact.id === updateContact.id) {
+                    return updateContact;
+                }
+                return contact;
+            }))
+           setContracts(updateContact);
+        }
+    },[location.state?.updateContact])
 
     return (
-        <div>
-            <Table striped bordered hover>
-                <thead>
-                <tr>
-                    <th>Số hợp đồng</th>
-                    <th>Ngày bắt đầu</th>
-                    <th>Ngày kết thúc</th>
-                    <th>Số tiền cọc trước</th>
-                    <th>Tổng số tiền thanh toán</th>
-                </tr>
-                </thead>
-                <tbody>
-                {currentContracts.map((contract) => (
-                    <tr key={contract.id}>
-                        <td>{contract.id}</td>
-                        <td>{contract.startDate}</td>
-                        <td>{contract.endDate}</td>
-                        <td>{contract.deposit}</td>
-                        <td>{contract.totalPayment}</td>
+        <>
+            <NavLink to="/create-contact">Create new contact </NavLink>
+            <h1 style={{textAlign: 'center'}}>Contact List</h1>
+            <div className="container">
+                <Table striped bordered hover border={1}>
+                    <thead>
+                    <tr>
+                        <th>Số hợp đồng</th>
+                        <th>Start Day</th>
+                        <th>End Day</th>
+                        <th>Deposit</th>
+                        <th>Total Payment</th>
+                        <th>Action</th>
                     </tr>
-                ))}
-                </tbody>
-            </Table>
-            <Pagination>
-                {Array(Math.ceil(contracts.length / contractsPerPage))
-                    .fill()
-                    .map((_, index) => (
-                        <Pagination.Item
-                            key={index}
-                            active={index + 1 === currentPage}
-                            onClick={() => paginate(index + 1)}
-                        >
-                            {index + 1}
-                        </Pagination.Item>
+                    </thead>
+                    <tbody>
+                    {contracts.map((contract) => (
+                        <tr key={contract.id}>
+                            <td>{contract.id}</td>
+                            <td>{contract.startDate}</td>
+                            <td>{contract.endDate}</td>
+                            <td>{contract.deposit}</td>
+                            <td>{contract.totalPayment}</td>
+                            <td>
+                                <button type="button" className="btn btn-danger"
+                                        onClick={() => handleDelete(contract.id)}>Delete
+                                </button>
+                                <button>
+                                    <NavLink to={"/update-contact/"+contract.id}>Update</NavLink>
+                                </button>
+                            </td>
+                        </tr>
                     ))}
-            </Pagination>
-        </div>
+                    </tbody>
+                </Table>
+            </div>
+
+        </>
+
+        // <div>
+        //
+        //     <Pagination>
+        //         {Array(Math.ceil(contracts.length / contractsPerPage))
+        //             .fill()
+        //             .map((_, index) => (
+        //                 <Pagination.Item
+        //                     key={index}
+        //                     active={index + 1 === currentPage}
+        //                     onClick={() => paginate(index + 1)}
+        //                 >
+        //                     {index + 1}
+        //                 </Pagination.Item>
+        //             ))}
+        //     </Pagination>
+        // </div>
     );
 };
 

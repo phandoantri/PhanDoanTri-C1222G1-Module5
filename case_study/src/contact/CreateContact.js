@@ -1,84 +1,73 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import {useNavigate} from "react-router";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import * as Yup from "yup";
+import * as contactService from "../service/ContactService"
 
- export function ContractForm () {
-    const [contract, setContract] = useState({
-        contractNumber: '',
-        startDate: '',
-        endDate: '',
-        depositAmount: '',
-        totalPayment: '',
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setContract((prevContract) => ({
-            ...prevContract,
-            [name]: value,
-        }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Xử lý logic khi gửi hợp đồng lên server hoặc lưu vào cơ sở dữ liệu
-        console.log(contract);
-    };
+export function CreateContact() {
+    const navigate = useNavigate();
 
     return (
-        <div className="contract-form-container">
-            <h2>Rental Contract</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Contract Number:
-                    <input
-                        type="text"
-                        name="contractNumber"
-                        value={contract.contractNumber}
-                        onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Start Date:
-                    <input
-                        type="text"
-                        name="startDate"
-                        value={contract.startDate}
-                        onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    End Date:
-                    <input
-                        type="text"
-                        name="endDate"
-                        value={contract.endDate}
-                        onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Deposit Amount:
-                    <input
-                        type="text"
-                        name="depositAmount"
-                        value={contract.depositAmount}
-                        onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Total Payment:
-                    <input
-                        type="text"
-                        name="totalPayment"
-                        value={contract.totalPayment}
-                        onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <>
+            <Formik
+                initialValues={{
+                    startDate: "",
+                    endDate: "",
+                    deposit: "",
+                    totalPayment: ""
+                }}
+                onSubmit={(values) => {
+                    const create = async () => {
+                        await contactService.createContact(values)
+                        console.log(values)
+                        navigate("/contact")
+                    }
+                    create();
+                }}
+                validationSchema={Yup.object({
+                    startDate: Yup.string().required("must not be left blank"),
+                    endDate: Yup.string().required("must not be left blank"),
+                    deposit: Yup.number().required("must not be left blank"),
+                    totalPayment: Yup.number().required("must not be left blank")
+                })}
+            >
+                {
+
+                    <div className="contract-form-container">
+                        <h1 style={{textAlign:"center"}}>Create Contract</h1>
+                        <div className="container">
+
+                            <Form>
+                                <div>
+                                    <div><label>Start Day:</label></div>
+                                    <div style={{width:"366px"}}> <Field type="date" name="startDate" /></div>
+                                    <ErrorMessage name='startDate' component='span' className='err-message'/>
+                                </div>
+                                <div>
+                                    <div><label>End Day:</label></div>
+                                    <div><Field type="date" name="endDate"/></div>
+                                    <ErrorMessage name='endDate' component='span' className='err-message'/>
+                                </div>
+                                <div>
+                                    <div><label>Deposit:</label></div>
+                                    <div><Field type="number" name="deposit"/></div>
+                                    <ErrorMessage name='deposit' component='span' className='err-message'/>
+                                </div>
+                                <div>
+                                    <div><label>Total Payment:</label></div>
+                                    <div><Field type="number" name="totalPayment"/></div>
+                                    <ErrorMessage name='totalPayment' component='span' className='err-message'/>
+                                </div>
+
+                                <button type="submit">Submit</button>
+                            </Form>
+                        </div>
+
+                    </div>
+                }
+            </Formik>
+
+        </>
+
     );
 };

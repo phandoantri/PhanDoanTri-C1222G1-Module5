@@ -1,0 +1,71 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Black Omega",
+      "code": "PROD-1234",
+      "moTa": "Đây là sản phẩm cho sức khỏe",
+      "typeProduct": "2",
+      "cost": 120000,
+      "quantity": 4,
+      "date": "03-06-2023"
+    },
+    {
+      "id": 2,
+      "name": "Black Omega",
+      "code": "PROD-1234",
+      "moTa": "Đây là sản phẩm cho sức khỏe",
+      "typeProduct": "1",
+      "cost": 120000,
+      "quantity": 4,
+      "date": "03-06-2023"
+    },
+    {
+      "id": 3,
+      "name": "Black Omega",
+      "code": "PROD-1234",
+      "moTa": "Đây là sản phẩm cho sức khỏe",
+      "typeProduct": "3",
+      "cost": 120000,
+      "quantity": 4,
+      "date": "03-06-2023"
+    },
+    {
+      "name": "Strength Fish",
+      "code": "PROD-1234",
+      "moTa": "day la san pham chuc nang",
+      "typeProduct": "1",
+      "cost": 12000,
+      "quantity": 10,
+      "date": "2023-06-07",
+      "id": 4
+    },
+    {
+      "name": "asds",
+      "code": "PROD-1234",
+      "moTa": "acasx",
+      "typeProduct": "1",
+      "cost": 12000,
+      "quantity": 1,
+      "date": "2023-06-06",
+      "id": 5
+    }
+  ],
+  "typeProduct": [
+    {
+      "id": "1",
+      "nameType": "Thực phẩm chức năng",
+      "moTa": "Đây là sản phẩm chức năng"
+    },
+    {
+      "id": "2",
+      "nameType": "Thiết bị y tế",
+      "moTa": "Đây là sản phẩm y tế"
+    },
+    {
+      "id": "3",
+      "nameType": "Dược phẩm",
+      "moTa": "Đây là sản phẩm dược phẩm"
+    }
+  ]
+}
