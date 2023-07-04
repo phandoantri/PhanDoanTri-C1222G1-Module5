@@ -1,86 +1,80 @@
-// import React, {useEffect, useState} from "react";
-// import {ErrorMessage, Field, Form, Formik} from "formik";
-// import * as Yup from "yup"
-// import * as productService from "../service/ProductService"
-// import * as typeProductService from "../service/TypeProductService"
-// import {useNavigate} from "react-router";
-//
-// export function CreateProduct() {
-//     const [typeProducts, setTypeProduct] = useState([])
-//     const navigate = useNavigate();
-//     useEffect(() => {
-//         const fetchApi = async () => {
-//             let result = await typeProductService.findAll();
-//             setTypeProduct(result)
-//         }
-//         fetchApi();
-//     }, [])
-//     return (
-//         <Formik
-//             initialValues={{
-//                 name: "",
-//                 code: "",
-//                 cost: "",
-//                 type: "",
-//                 date: ""
-//             }}
-//             validationSchema={Yup.object({
-//                 name: Yup.string().required("Khong duoc trong"),
-//                 code: Yup.string().required("khong duoc de trong").matches(/^XP-\d{4}$/),
-//                 cost: Yup.string().required("Khong duoc trong"),
-//                 date: Yup.string().required("Khong duoc trong")
-//             })}
-//             onSubmit={(values) => {
-//                 const create = async () => {
-//                     const resultt = await productService.createProduct(values);
-//                     console.log(values)
-//                     navigate("/product")
-//
-//                 }
-//                 create();
-//             }}
-//         >
-//             {
-//                 <div className="container">
-//                     <Form>
-//                         <h1>Create Product</h1>
-//                         <div>
-//                             <div><label htmlFor="name">Name</label></div>
-//                             <div><Field name="name" id="name"/></div>
-//                             <ErrorMessage name="name" component="span" className="err-message"/>
-//                         </div>
-//                         <div>
-//                             <div><label htmlFor="code">Code</label></div>
-//                             <div><Field name="code" id="code"/></div>
-//                             <ErrorMessage name="code" component="span" className="err-message"/>
-//                         </div>
-//                         <div>
-//                             <div><label htmlFor="cost">Cost</label></div>
-//                             <div><Field name="cost" id="cost"/></div>
-//                             <ErrorMessage name="cost" component="span" className="err-message"/>
-//                         </div>
-//                         <div>
-//                             <div><label>Type Product</label></div>
-//                             <Field as="select" name="type">
-//                                 {
-//                                 typeProducts.map((typeProduct) => (
-//                                     <option value={typeProduct.id}>{typeProduct.nameType}</option>
-//                                 ))
-//                             } </Field>
-//
-//                         </div>
-//                         <div>
-//                             <div><label htmlFor="date">Date</label></div>
-//                             <div><Field type="date" name="date" id="date"/></div>
-//                             <ErrorMessage name="date" component="span" className="err-message"/>
-//                         </div>
-//                         <button type="submit">Create</button>
-//                     </Form>
-//                 </div>
-//             }
-//
-//         </Formik>
-//
-//
-//     )
-// }
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import React, {useEffect, useState} from "react";
+import * as typeService from "../service/TypeProductService"
+import * as productService from "../service/ProductService"
+import {useNavigate} from "react-router";
+
+export function CreateProduct() {
+    const [typeProduct, setType] = useState([])
+    const navigate = useNavigate();
+    useEffect(() => {
+        const fetchType = async () => {
+            const result = await typeService.findAll()
+            setType(result)
+        }
+        fetchType()
+    }, [])
+    return (
+        <>
+            <Formik
+                initialValues={{
+                    name: "",
+                    code: "",
+                    cost: "",
+                    date: "",
+                    typeProduct: ""
+                }}
+                onSubmit={(values) => {
+                    console.log(values)
+                    const create = async () => {
+                        await productService.createProduct(values)
+                        navigate("/")
+                    }
+                    create()
+                }}
+            >
+                {
+                    <Form>
+
+                        <div>
+                            <label htmlFor="name">Name</label>
+                            <Field name="name" type="text" id="name"/>
+                            <ErrorMessage name="name" className="err-message" component="span"/>
+                        </div>
+                        <div>
+                            <label htmlFor="code">Code</label>
+                            <Field name="code" type="text" id="code"/>
+                            <ErrorMessage name="code" className="err-message" component="span"/>
+                        </div>
+                        <div>
+                            <label htmlFor="cost">Cost</label>
+                            <Field name="cost" type="number" id="cost"/>
+                            <ErrorMessage name="cost" className="err-message" component="span"/>
+                        </div>
+                        <div>
+                            <label htmlFor="date">Date</label>
+                            <Field name="date" type="date" id="date"/>
+                            <ErrorMessage name="date" className="err-message" component="span"/>
+                        </div>
+                        <div>
+                            <label htmlFor="typeProduct">Type product</label>
+                            <Field as="select" name="typeProduct" id="typeProduct">
+                                <option value="">Select</option>
+                                {
+                                    typeProduct.map((type) => (
+                                        <option value={type.id}>{type.nameType}</option>
+                                    ))
+                                }
+
+                            </Field>
+                            <ErrorMessage name="typeProduct" className="err-message" component="span"/>
+                        </div>
+                        <button type="submit">Create</button>
+
+                    </Form>
+                }
+
+            </Formik>
+        </>
+    )
+}
